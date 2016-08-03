@@ -1,0 +1,77 @@
+{
+  "_args": [
+    [
+      "react-typeahead-component@^0.9.0",
+      "/Users/Targun/devbot/bootler"
+    ]
+  ],
+  "_from": "react-typeahead-component@>=0.9.0 <0.10.0",
+  "_id": "react-typeahead-component@0.9.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-typeahead-component",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "email": "ezequiel@yahoo.com",
+    "name": "ezequiel"
+  },
+  "_npmVersion": "2.11.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "react-typeahead-component",
+    "raw": "react-typeahead-component@^0.9.0",
+    "rawSpec": "^0.9.0",
+    "scope": null,
+    "spec": ">=0.9.0 <0.10.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-typeahead-component/-/react-typeahead-component-0.9.0.tgz",
+  "_shasum": "c7c39943c02349d420ef8342e5ea05e45ad5d3b4",
+  "_shrinkwrap": null,
+  "_spec": "react-typeahead-component@^0.9.0",
+  "_where": "/Users/Targun/devbot/bootler",
+  "author": {
+    "email": "ezequiel@yahoo.com",
+    "name": "Ezequiel Rodriguez"
+  },
+  "bugs": {
+    "url": "https://github.com/ezequiel/react-typeahead-component/issues"
+  },
+  "dependencies": {},
+  "description": "Typeahead, written using the React.js library.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "c7c39943c02349d420ef8342e5ea05e45ad5d3b4",
+    "tarball": "http://registry.npmjs.org/react-typeahead-component/-/react-typeahead-component-0.9.0.tgz"
+  },
+  "homepage": "https://github.com/ezequiel/react-typeahead-component#readme",
+  "keywords": [
+    "autocomplete",
+    "component",
+    "react",
+    "react-component",
+    "reactjs",
+    "typeahead"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "ezequiel",
+      "email": "ezequiel@yahoo.com"
+    }
+  ],
+  "name": "react-typeahead-component",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezequiel/react-typeahead-component.git"
+  },
+  "scripts": {},
+  "version": "0.9.0"
+}
