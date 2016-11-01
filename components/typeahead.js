@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react'),
-    ReactDOM = require('react-dom'),
-    Input = require('./input'),
-    AriaStatus = require('./aria_status'),
-    getTextDirection = require('../utils/get_text_direction'),
-    noop = function() {};
+const React = require('react');
+const ReactDOM = require('react-dom');
+const Input = require('./input');
+const AriaStatus = require('./aria_status');
+const getTextDirection = require('../utils/get_text_direction');
+const noop = () => {};
 
-module.exports = React.createClass({
+const Typeahead = React.createClass({
     displayName: 'Typeahead',
 
     statics: {
@@ -154,11 +154,21 @@ module.exports = React.createClass({
             className = 'react-typeahead-input',
             inputDirection = getTextDirection(inputValue);
 
+        const style = Object.assign({}, {
+            position: 'relative'
+        }, this.props.style);
+
+        const inputStyle = Object.assign({}, {
+            position: 'relative'
+        }, this.props.inputStyle);
+
+        const hintStyle = Object.assign({}, {
+            position: 'absolute'
+        }, this.props.inputStyle);
+
         return (
             React.createElement("div", {
-                style: {
-                    position: 'relative'
-                },
+                style: style,
                 className: "react-typeahead-input-container"},
                 React.createElement(Input, {
                     disabled: true,
@@ -166,13 +176,10 @@ module.exports = React.createClass({
                     "aria-hidden": true,
                     dir: inputDirection,
                     className: className + ' react-typeahead-hint',
-                    style: {
-                        position: 'absolute'
-                    },
+                    style: hintStyle,
                     value: state.isHintVisible ? props.handleHint(inputValue, props.options) : null}
                 ),
                 React.createElement(Input, {
-                    ref: "input",
                     role: "combobox",
                     "aria-owns": _this.optionsId,
                     "aria-expanded": state.isDropdownVisible,
@@ -196,9 +203,8 @@ module.exports = React.createClass({
                     onKeyUp: props.onKeyUp,
                     onKeyPress: props.onKeyPress,
                     className: className + ' react-typeahead-usertext',
-                    style: {
-                        position: 'relative'
-                    }}
+                    style: inputStyle,
+                    }
                 )
             )
         );
@@ -217,18 +223,20 @@ module.exports = React.createClass({
             return null;
         }
 
+        let optionsStyle = Object.assign({}, {
+           width: '100%',
+           background: '#fff',
+           position: 'absolute',
+           boxSizing: 'border-box',
+           display: isDropdownVisible ? 'block' : 'none',
+       }, this.props.optionsStyle || {});
+
         return (
             React.createElement("ul", {id: _this.optionsId,
                 ref: "dropdown",
                 role: "listbox",
                 "aria-hidden": !isDropdownVisible,
-                style: {
-                    width: '100%',
-                    background: '#fff',
-                    position: 'absolute',
-                    boxSizing: 'border-box',
-                    display: isDropdownVisible ? 'block' : 'none'
-                },
+                style: optionsStyle,
                 className: "react-typeahead-options",
                 onMouseOut: this.handleMouseOut},
 
@@ -343,7 +351,10 @@ module.exports = React.createClass({
     },
 
     focus: function() {
-        ReactDOM.findDOMNode(this.refs.input).focus();
+        const f = this.refs.input;
+        if (f) {
+            ReactDOM.findDOMNode(f).focus();
+        }
     },
 
     handleFocus: function(event) {
@@ -454,7 +465,6 @@ module.exports = React.createClass({
                         }
 
                         props.onOptionChange(event, optionData, selectedIndex);
-                        props.onKeyDown(event, optionData, selectedIndex);
                     });
                 }
             }
@@ -464,6 +474,7 @@ module.exports = React.createClass({
         if (!hasHandledKeyDown) {
             index = this.state.selectedIndex;
             optionData = index < 0 ? props.inputValue : props.options[index];
+
             props.onKeyDown(event, optionData, index);
         }
     },
@@ -505,3 +516,5 @@ module.exports = React.createClass({
         }
     }
 });
+
+module.exports = Typeahead;
