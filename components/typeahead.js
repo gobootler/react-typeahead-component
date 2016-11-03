@@ -154,9 +154,7 @@ const Typeahead = React.createClass({
             className = 'react-typeahead-input',
             inputDirection = getTextDirection(inputValue);
 
-        const style = Object.assign({}, {
-            position: 'relative'
-        }, this.props.style);
+        const style = this.props.style || {};
 
         const inputStyle = Object.assign({}, {
             position: 'relative'
@@ -169,13 +167,13 @@ const Typeahead = React.createClass({
         return (
             React.createElement("div", {
                 style: style,
-                className: "react-typeahead-input-container"},
+                className: this.props.className || "react-typeahead-input-container"},
                 React.createElement(Input, {
                     disabled: true,
                     role: "presentation",
                     "aria-hidden": true,
                     dir: inputDirection,
-                    className: className + ' react-typeahead-hint',
+                    className: this.props.inputClassName || (className + ' react-typeahead-hint'),
                     style: hintStyle,
                     value: state.isHintVisible ? props.handleHint(inputValue, props.options) : null}
                 ),
@@ -202,7 +200,7 @@ const Typeahead = React.createClass({
                     onSelect: props.onSelect,
                     onKeyUp: props.onKeyUp,
                     onKeyPress: props.onKeyPress,
-                    className: className + ' react-typeahead-usertext',
+                    className: this.props.inputClassName || (className + ' react-typeahead-usertext'),
                     style: inputStyle,
                     }
                 )
@@ -224,10 +222,6 @@ const Typeahead = React.createClass({
         }
 
         let optionsStyle = Object.assign({}, {
-           width: '100%',
-           background: '#fff',
-           position: 'absolute',
-           boxSizing: 'border-box',
            display: isDropdownVisible ? 'block' : 'none',
        }, this.props.optionsStyle || {});
 
@@ -237,7 +231,7 @@ const Typeahead = React.createClass({
                 role: "listbox",
                 "aria-hidden": !isDropdownVisible,
                 style: optionsStyle,
-                className: "react-typeahead-options",
+                className: this.props.optionsClassName || "react-typeahead-options",
                 onMouseOut: this.handleMouseOut},
 
                     props.options.map(function(data, index) {
