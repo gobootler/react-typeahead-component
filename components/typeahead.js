@@ -175,7 +175,7 @@ const Typeahead = React.createClass({
                     dir: inputDirection,
                     className: this.props.inputClassName || (className + ' react-typeahead-hint'),
                     style: hintStyle,
-                    value: state.isHintVisible ? props.handleHint(inputValue, props.options) : null}
+                    value: state.isHintVisible ? props.handleHint(inputValue, props.options) : ''}
                 ),
                 React.createElement(Input, {
                     role: "combobox",
