@@ -34,14 +34,7 @@ module.exports = React.createClass({
     },
 
     render: function() {
-        var _this = this;
-
-        return (
-            React.createElement("input", React.__spread({}, 
-                _this.props, 
-                {onChange: _this.handleChange})
-            )
-        );
+        return <input {...this.props} onChange={this.handleChange} />
     },
 
     handleChange: function(event) {
