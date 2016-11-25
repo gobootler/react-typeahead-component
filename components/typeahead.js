@@ -1,13 +1,13 @@
 'use strict';
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Input = require('./input');
-const AriaStatus = require('./aria_status');
-const getTextDirection = require('../utils/get_text_direction');
-const noop = () => {};
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Input = require('./input');
+var AriaStatus = require('./aria_status');
+var getTextDirection = require('../utils/get_text_direction');
+var noop = () => {};
 
-const Typeahead = React.createClass({
+var Typeahead = React.createClass({
     displayName: 'Typeahead',
 
     statics: {
@@ -154,13 +154,13 @@ const Typeahead = React.createClass({
             className = 'react-typeahead-input',
             inputDirection = getTextDirection(inputValue);
 
-        const style = this.props.style || {};
+        var style = this.props.style || {};
 
-        const inputStyle = Object.assign({}, {
+        var inputStyle = Object.assign({}, {
             position: 'relative'
         }, this.props.inputStyle);
 
-        const hintStyle = Object.assign({}, {
+        var hintStyle = Object.assign({}, {
             position: 'absolute'
         }, this.props.inputStyle);
 
@@ -345,7 +345,7 @@ const Typeahead = React.createClass({
     },
 
     focus: function() {
-        const f = this.refs.input;
+        var f = this.refs.input;
         if (f) {
             ReactDOM.findDOMNode(f).focus();
         }
