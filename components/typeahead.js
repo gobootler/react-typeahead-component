@@ -221,7 +221,7 @@ var Typeahead = React.createClass({
             return null;
         }
 
-        let optionsStyle = Object.assign({}, {
+        var optionsStyle = Object.assign({}, {
            display: isDropdownVisible ? 'block' : 'none',
        }, this.props.optionsStyle || {});
 
