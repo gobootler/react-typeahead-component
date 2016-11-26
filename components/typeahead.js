@@ -5,7 +5,7 @@ var ReactDOM = require('react-dom');
 var Input = require('./input');
 var AriaStatus = require('./aria_status');
 var getTextDirection = require('../utils/get_text_direction');
-var noop = () => {};
+var noop = function () {};
 
 var Typeahead = React.createClass({
     displayName: 'Typeahead',
