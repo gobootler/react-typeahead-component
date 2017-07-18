@@ -65,7 +65,7 @@
       "email": "ezequiel@yahoo.com"
     }
   ],
-  "@bootler/name": "react-typeahead-component",
+  "name": "@bootler/react-typeahead-component",
   "optionalDependencies": {},
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -73,5 +73,5 @@
     "url": "git+https://github.com/ezequiel/react-typeahead-component.git"
   },
   "scripts": {},
-  "version": "1.1.0"
+  "version": "0.10.0"
 }
