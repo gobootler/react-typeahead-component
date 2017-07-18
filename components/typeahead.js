@@ -10,16 +10,6 @@ var noop = function () {};
 var Typeahead = React.createClass({
     displayName: 'Typeahead',
 
-    statics: {
-        getInstanceCount: (function() {
-            var count = 0;
-
-            return function() {
-                return ++count;
-            };
-        }())
-    },
-
     propTypes: process.env.NODE_ENV === 'production' ? {} : {
         inputId: React.PropTypes.string,
         inputName: React.PropTypes.string,
@@ -45,7 +35,8 @@ var Typeahead = React.createClass({
         onDropdownClose: React.PropTypes.func,
         optionTemplate: React.PropTypes.func.isRequired,
         getMessageForOption: React.PropTypes.func,
-        getMessageForIncomingOptions: React.PropTypes.func
+        getMessageForIncomingOptions: React.PropTypes.func,
+        uniqueId: React.PropTypes.string
     },
 
     getDefaultProps: function() {
@@ -86,8 +77,8 @@ var Typeahead = React.createClass({
     },
 
     componentWillMount: function() {
-        var _this = this,
-            uniqueId = this.constructor.getInstanceCount();
+        var _this = this;
+        var uniqueId = this.props.uniqueId || '1';
 
         _this.userInputValue = null;
         _this.previousInputValue = null;
