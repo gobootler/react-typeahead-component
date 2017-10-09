@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+var PropTypes = require('prop-types');
 
 var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -90,8 +91,8 @@ module.exports = React.createClass({
     displayName: 'Input',
 
     propTypes: process.env.NODE_ENV === 'production' ? {} : {
-        value: React.PropTypes.string,
-        onChange: React.PropTypes.func
+        value: PropTypes.string,
+        onChange: PropTypes.func
     },
 
     getDefaultProps: function() {

@@ -2,12 +2,13 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+var PropTypes = require('prop-types');
 
 module.exports = React.createClass({
     displayName: 'Aria Status',
 
     propTypes: process.env.NODE_ENV === 'production' ? {} : {
-        message: React.PropTypes.string
+        message: PropTypes.string
     },
 
     componentDidMount: function() {
