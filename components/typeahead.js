@@ -3,12 +3,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
 var Input = require('./input');
 var AriaStatus = require('./aria_status');
 var getTextDirection = require('../utils/get_text_direction');
 var noop = function () {};
 
-var Typeahead = React.createClass({
+var Typeahead = createReactClass({
     displayName: 'Typeahead',
 
     propTypes: process.env.NODE_ENV === 'production' ? {} : {

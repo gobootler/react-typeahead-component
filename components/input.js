@@ -3,6 +3,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
 
 var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -87,7 +88,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'Input',
 
     propTypes: process.env.NODE_ENV === 'production' ? {} : {

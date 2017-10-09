@@ -3,8 +3,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'Aria Status',
 
     propTypes: process.env.NODE_ENV === 'production' ? {} : {
