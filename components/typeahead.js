@@ -161,16 +161,16 @@ var Typeahead = createReactClass({
             React.createElement("div", {
                 style: style,
                 className: this.props.className || "react-typeahead-input-container"},
-                React.createElement(Input, {
+                React.createElement(Input, Object.assign({}, {
                     disabled: true,
                     role: "presentation",
                     "aria-hidden": true,
                     dir: inputDirection,
                     className: this.props.inputClassName || (className + ' react-typeahead-hint'),
                     style: hintStyle,
-                    value: state.isHintVisible ? props.handleHint(inputValue, props.options) : ''}
-                ),
-                React.createElement(Input, {
+                    value: state.isHintVisible ? props.handleHint(inputValue, props.options) : ''
+                }, this.props.inputProps)),
+                React.createElement(Input, Object.assign({}, {
                     role: "combobox",
                     "aria-owns": _this.optionsId,
                     "aria-expanded": state.isDropdownVisible,
@@ -195,8 +195,7 @@ var Typeahead = createReactClass({
                     onKeyPress: props.onKeyPress,
                     className: this.props.inputClassName || (className + ' react-typeahead-usertext'),
                     style: inputStyle,
-                    }
-                )
+                    }, this.props.inputProps))
             )
         );
     },
