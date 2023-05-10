@@ -78,7 +78,8 @@ var Typeahead = createReactClass({
         };
     },
 
-    componentWillMount: function() {
+    componentDidMount: function() {
+        // Begin code that was in componentWillMount, which got deprecated
         var _this = this;
         var uniqueId = this.props.uniqueId || '1';
 
@@ -86,9 +87,8 @@ var Typeahead = createReactClass({
         _this.previousInputValue = null;
         _this.activeDescendantId = 'react-typeahead-activedescendant-' + uniqueId;
         _this.optionsId = 'react-typeahead-options-' + uniqueId;
-    },
+        // End code that was in componentWillMount
 
-    componentDidMount: function() {
         var addEvent = window.addEventListener,
             handleWindowClose = this.handleWindowClose;
 
@@ -108,19 +108,8 @@ var Typeahead = createReactClass({
         removeEvent('click', handleWindowClose, false);
     },
 
-    componentWillReceiveProps: function(nextProps) {
-        var nextValue = nextProps.inputValue,
-            nextOptions = nextProps.options,
-            valueLength = nextValue.length,
-            isHintVisible = valueLength > 0 &&
-                // A visible part of the hint must be
-                // available for us to complete it.
-                nextProps.handleHint(nextValue, nextOptions).slice(valueLength).length > 0;
-
-        this.setState({
-            isHintVisible: isHintVisible
-        });
-    },
+    // The componentWillReceiveProps function only handled calling handleHint, which we're not using anyway
+    //      so we could simply remove componentWillReceiveProps when it was being deprecated
 
     render: function() {
         var _this = this;
